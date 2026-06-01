@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Mc Levann Arranchado | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy-dark: #0a192f;
+            --navy: #112240;
+            --navy-light: #233554;
+            --light-blue: #64ffda;
+            --light-blue-soft: rgba(100, 255, 218, 0.1);
+            --white: #e6f1ff;
+            --gray: #8892b0;
+            --gray-light: #a8b2d1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--navy-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--navy-light);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-blue);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 50px 50px;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease;
+        }
+
+        .greeting {
+            color: var(--light-blue);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 1px solid var(--light-blue);
+            color: var(--light-blue);
+        }
+
+        .btn-primary:hover {
+            background: var(--light-blue-soft);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: var(--light-blue);
+            color: var(--navy-dark);
+            border: 1px solid var(--light-blue);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: var(--light-blue);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid var(--light-blue);
+            box-shadow: 0 20px 60px rgba(100, 255, 218, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .about {
+            padding: 100px 50px;
+            background: var(--navy);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span {
+            color: var(--light-blue);
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            color: var(--light-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            border: 2px solid var(--navy-light);
+            opacity: 0.9;
+        }
+
+        .skills {
+            padding: 100px 50px;
+            background: var(--navy-dark);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: var(--navy);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--navy-light);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--light-blue);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--light-blue);
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .contact {
+            padding: 100px 50px;
+            background: var(--navy);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            width: 45px;
+            height: 45px;
+            background: var(--light-blue-soft);
+            color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .contact-item div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item .label {
+            color: var(--light-blue);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item .value {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: var(--navy-dark);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--navy-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--light-blue);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--navy);
+            border: 1px solid var(--navy-light);
+            border-radius: 4px;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--light-blue);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--light-blue);
+            color: var(--navy-dark);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: transparent;
+            color: var(--light-blue);
+            border: 1px solid var(--light-blue);
+        }
+
+        footer {
+            padding: 30px 50px;
+            text-align: center;
+            background: var(--navy-dark);
+            border-top: 1px solid var(--navy-light);
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer .social-links a {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-links a:hover {
+            color: var(--light-blue);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-container,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-image img {
+                width: 280px;
+                height: 280px;
+            }
+
+            nav {
+                padding: 15px 25px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .about,
+            .skills,
+            .contact {
+                padding: 80px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">JMLA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="experience.html">Experience</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="greeting">Hello, I'm</span>
+                <h1>John Mc Levann<br>Arranchado</h1>
+                <h2>Licensed Criminologist & Virtual Assistant</h2>
+                <p>Providing dependable support in managing daily operations and assisting clients with various administrative and operational tasks. Known for being reliable, consistent, and flexible.</p>
+                <div class="hero-buttons">
+                    <a href="experience.html" class="btn btn-primary">
+                        <i class="fas fa-briefcase"></i> View My Experience
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="MyPhoto.jpg" alt="John Mc Levann Arranchado">
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="section-container">
+            <h2 class="section-title"><span>01.</span> About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a dedicated professional with a Bachelor of Science in Criminology from Southern Philippines College (2019-2024) and a Licensed Criminologist. With extensive experience spanning customer service, sales, real estate, and executive assistance, I bring a versatile skill set to every project.</p>
+                    <p>My career journey has taken me through various roles including Outbound Sales, Lead Generation, Property Management, Customer Service, Executive Assistance, and Transaction Coordination. I specialize in CRM management, cold calling, appointment setting, social media management, and business development.</p>
+                    <p>I am committed to contributing to the growth and success of any organization while continuously developing my skills and delivering high-quality work aligned with the company's mission.</p>
+                    
+                    <div class="about-info">
+                        <div class="info-item">
+                            <span class="info-label">Full Name</span>
+                            <span class="info-value">John Mc Levann E. Arranchado</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Date of Birth</span>
+                            <span class="info-value">August 28, 1997</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Civil Status</span>
+                            <span class="info-value">Married</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Religion</span>
+                            <span class="info-value">Roman Catholic</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">Zone 6 RVS, Bugo, Cagayan de Oro City, 9000</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Languages</span>
+                            <span class="info-value">English, Tagalog, Bisaya</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="1c82147c-ee60-44e0-a8ea-b82f4385d53b.jpg" alt="John Mc Levann">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="section-container">
+            <h2 class="section-title"><span>02.</span> Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Sales & Customer Service</h3>
+                    <p>Cold Calling, Appointment Setting, Lead Generation, Negotiation, CSR/Retention, Upselling</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Real Estate & Property</h3>
+                    <p>MLS Data Entry, Listing Management, Due Diligence, Market Research, Transaction Coordination, Skip Tracing</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Tech & CRM Management</h3>
+                    <p>GoHighLevel, Podio, Salesforce, Zoho CRM, Apollo.io, Follow Up Boss, VanillaSoft, Keap</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Marketing & Content</h3>
+                    <p>Canva, Social Media Management, SEO, Email Campaigns, WordPress, Elementor, Graphic Design</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Video & Multimedia</h3>
+                    <p>Video Editing, Thumbnail Creation, GIF Creation, Content Repurposing, Transcription</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & Productivity Tools</h3>
+                    <p>ChatGPT, AI-assisted Research, SOP Development, Process Documentation, Automation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <h2 class="section-title"><span>03.</span> Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>I'm currently open to new opportunities and collaborations. Whether you need virtual assistance, real estate support, sales expertise, or administrative help — I'd love to hear from you. Send me a message and let's discuss how I can contribute to your success.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+639758477996" class="value">+63 975 847 7996</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:mclevann28@gmail.com" class="value">mclevann28@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                <span class="value">Zone 6 RVS, Bugo, Cagayan de Oro City, 9000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed & Built by John Mc Levann Arranchado</p>
+        <div class="social-links">
+            <a href="mailto:mclevann28@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+639758477996"><i class="fas fa-phone"></i></a>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Licensed Criminologist | Virtual Assistant | Real Estate Professional</p>
+    </footer>
+
+</body>
+</html>

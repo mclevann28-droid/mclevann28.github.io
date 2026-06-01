@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | John Mc Levann Arranchado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy-dark: #0a192f;
+            --navy: #112240;
+            --navy-light: #233554;
+            --light-blue: #64ffda;
+            --light-blue-soft: rgba(100, 255, 218, 0.1);
+            --white: #e6f1ff;
+            --gray: #8892b0;
+            --gray-light: #a8b2d1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--navy-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--navy-light);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-blue);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Header */
+        .page-header {
+            padding: 150px 50px 60px;
+            text-align: center;
+            background: var(--navy);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 span {
+            color: var(--light-blue);
+        }
+
+        .page-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light-blue);
+            text-decoration: none;
+            margin-top: 25px;
+            font-weight: 500;
+            transition: gap 0.3s;
+        }
+
+        .back-btn:hover {
+            gap: 15px;
+        }
+
+        /* Timeline */
+        .timeline {
+            padding: 60px 50px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            padding-bottom: 50px;
+            border-left: 2px solid var(--navy-light);
+            margin-left: 15px;
+        }
+
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            background: var(--navy-dark);
+            border: 3px solid var(--light-blue);
+            border-radius: 50%;
+        }
+
+        .timeline-content {
+            background: var(--navy);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--navy-light);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--light-blue);
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.08);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .timeline-title h3 {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title .company {
+            color: var(--light-blue);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .timeline-date {
+            background: var(--light-blue-soft);
+            color: var(--light-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .timeline-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-body li {
+            color: var(--gray);
+            font-size: 0.95rem;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-body li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--light-blue);
+        }
+
+        /* Certificates Section */
+        .certificates {
+            padding: 80px 50px;
+            background: var(--navy);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span {
+            color: var(--light-blue);
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--navy-dark);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--navy-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            border-color: var(--light-blue);
+            transform: translateY(-3px);
+        }
+
+        .cert-card i {
+            color: var(--light-blue);
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        .cert-card h4 {
+            font-size: 0.95rem;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .cert-card p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Education Section */
+        .education {
+            padding: 80px 50px;
+            background: var(--navy-dark);
+        }
+
+        .edu-card {
+            background: var(--navy);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--navy-light);
+            max-width: 600px;
+            transition: all 0.3s;
+        }
+
+        .edu-card:hover {
+            border-color: var(--light-blue);
+        }
+
+        .edu-card h3 {
+            color: var(--light-blue);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .edu-card .school {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .edu-card .year {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 80px 50px;
+            background: var(--navy);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-category {
+            background: var(--navy-dark);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--navy-light);
+        }
+
+        .tool-category h3 {
+            color: var(--light-blue);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-category h3 i {
+            font-size: 1.1rem;
+        }
+
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tool-tag {
+            background: var(--navy-light);
+            color: var(--gray-light);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .tool-tag:hover {
+            background: var(--light-blue-soft);
+            color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 50px;
+            text-align: center;
+            background: var(--navy-dark);
+            border-top: 1px solid var(--navy-light);
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--light-blue);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .page-header {
+                padding: 120px 25px 40px;
+            }
+
+            .timeline {
+                padding: 40px 25px 60px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+            }
+
+            .certificates,
+            .education,
+            .tools {
+                padding: 60px 25px;
+            }
+
+            nav {
+                padding: 15px 25px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">JMLA</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="experience.html">Experience</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1><span>04.</span> Work Experience</h1>
+        <p>A comprehensive overview of my professional journey, showcasing my growth and expertise across multiple industries.</p>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline">
+
+        <!-- SimpliHome -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Admin Assistant</h3>
+                        <span class="company">SimpliHome</span>
+                    </div>
+                    <span class="timeline-date">June 2025 - May 2026</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Created property listings in MLS with lockbox numbers and shackle codes</li>
+                        <li>Assisted realtors and agents with posting listings and assigning lockbox details</li>
+                        <li>Conducted lead sourcing and skip tracing for property owners</li>
+                        <li>Called potential property owners interested in selling or listing properties</li>
+                        <li>Scheduled and coordinated event campaigns</li>
+                        <li>Contacted realtors interested in joining the team</li>
+                        <li>Created and maintained the internal team website</li>
+                        <li>Developed Standard Operating Procedures (SOPs) for internal processes</li>
+                        <li>Managed the CRM system and updated data in spreadsheets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selling Point Properties LLC -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Transaction Coordinator</h3>
+                        <span class="company">Selling Point Properties LLC</span>
+                    </div>
+                    <span class="timeline-date">Sept 2023 - Mar 2025</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Market Research & Evaluation</li>
+                        <li>Sourced land using Land ID and Land Portal</li>
+                        <li>Sent blind offers to prospective sellers</li>
+                        <li>Handled incoming and follow-up calls</li>
+                        <li>Conducted due diligence on properties</li>
+                        <li>Analyzed comparables and evaluated property values</li>
+                        <li>Verified deeds and related property details</li>
+                        <li>Maintained and updated the CRM system</li>
+                        <li>Contacted small to medium businesses to offer digital services (marketing tools, website improvement, automations)</li>
+                        <li>Performed lead sourcing for small-medium businesses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CMS LLC -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Real Estate VA / Inside Sales Associate / Marketing Assistant</h3>
+                        <span class="company">CMS LLC</span>
+                    </div>
+                    <span class="timeline-date">Jan 2022 - Mar 2025</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Conducted cold calls and set appointments</li>
+                        <li>Exported leads and performed skip tracing</li>
+                        <li>Imported leads into the dialer and CRM</li>
+                        <li>Pulled property comparables and prepared offers</li>
+                        <li>Optimized blog posts for SEO</li>
+                        <li>Optimized YouTube posts using targeted keywords</li>
+                        <li>Created and sent newsletters</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Moneta Markets -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Client Success Manager</h3>
+                        <span class="company">Moneta Markets</span>
+                    </div>
+                    <span class="timeline-date">Aug 2022 - Jan 2025</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Created daily market blog posts to update website content</li>
+                        <li>Published content on website and social media channels</li>
+                        <li>Ran email campaigns to boost online reviews</li>
+                        <li>Sent market update emails to clients</li>
+                        <li>Monitored and verified online reviews</li>
+                        <li>Assisted clients with account issues via email</li>
+                        <li>Handled client escalations</li>
+                        <li>Tested the application before client launch</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investor Unity -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Executive Assistant</h3>
+                        <span class="company">Investor Unity</span>
+                    </div>
+                    <span class="timeline-date">Dec 2021 - Mar 2025</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Educated investors about the Managed Portfolio Service (MSP)</li>
+                        <li>Encouraged investors to invest in MSP</li>
+                        <li>Optimized blog posts for better reach</li>
+                        <li>Published content on the website</li>
+                        <li>Ran email campaigns to engage clients</li>
+                        <li>Developed online courses with quizzes and uploaded them to the website</li>
+                        <li>Transcribed videos for accessibility and content repurposing</li>
+                        <li>Performed basic video editing, and created thumbnails and GIFs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Digistore24 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Customer Service Representative</h3>
+                        <span class="company">Digistore24</span>
+                    </div>
+                    <span class="timeline-date">Feb 2021 - Nov 2021</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Answered customer inquiries</li>
+                        <li>Assisted customers on placing orders online</li>
+                        <li>Tracked orders</li>
+                        <li>Processed refunds and replacements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- E360 -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Appointment Setter (Real Estate)</h3>
+                        <span class="company">E360</span>
+                    </div>
+                    <span class="timeline-date">Oct 2020 - Jan 2021</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Pre-qualifying potential sellers</li>
+                        <li>Setting appointments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- VXI - Comcast -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Tech Support Representative</h3>
+                        <span class="company">VXI - Comcast</span>
+                    </div>
+                    <span class="timeline-date">Oct 2019 - Jul 2020</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Provided the best customer experience</li>
+                        <li>Handled five lines of business</li>
+                        <li>Performed remote troubleshooting</li>
+                        <li>Processed subscriptions and upsold bundled services</li>
+                        <li>Handled customer retention</li>
+                        <li>Scheduled technician visits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Autoshacks -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Customer Service Representative</h3>
+                        <span class="company">Autoshacks</span>
+                    </div>
+                    <span class="timeline-date">Apr 2019 - Oct 2019</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Processed orders</li>
+                        <li>Upsold car parts insurance and bundles</li>
+                        <li>Investigated damaged items for replacements and refunds</li>
+                        <li>Tracked orders</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- LT Outsourcing -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Property Management</h3>
+                        <span class="company">LT Outsourcing</span>
+                    </div>
+                    <span class="timeline-date">Dec 2018 - Apr 2019</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Keeping the CRM up to date with newly acquired properties</li>
+                        <li>Requesting connection/disconnection of utility services and transferring names</li>
+                        <li>Handling phone calls and emails</li>
+                        <li>Processing documents for requests and invoices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- OC Tech Solutions -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Outbound Representative / Lead Generation Specialist</h3>
+                        <span class="company">OC Tech Solutions</span>
+                    </div>
+                    <span class="timeline-date">Jul 2018 - Dec 2018</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Lead Generation (Roofing, Auto Industry)</li>
+                        <li>Prospecting</li>
+                        <li>Cold Outreach (Email & Social Media)</li>
+                        <li>Skip Tracing</li>
+                        <li>Cold Calling (MCA, Roofing & Solar)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRM Data Quest Corp -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Outbound Sales Representative</h3>
+                        <span class="company">PRM Data Quest Corp.</span>
+                    </div>
+                    <span class="timeline-date">Nov 2017 - May 2018</span>
+                </div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>EDU Campaign & Essential Oil Products</li>
+                        <li>Offered Courses/Programs to Job Seekers relevant to positions they're applying for</li>
+                        <li>CSR / Retention</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Education Section -->
+    <section class="education">
+        <div class="section-container">
+            <h2 class="section-title"><span>05.</span> Education</h2>
+            <div class="edu-card">
+                <h3>Bachelor of Science in Criminology</h3>
+                <div class="school">Southern Philippines College</div>
+                <div class="year">2019 - 2024</div>
+            </div>
+            <div style="margin-top: 20px;" class="edu-card">
+                <h3>Secondary Education</h3>
+                <div class="school">Bugo National High School</div>
+                <div class="year">2010 - 2014</div>
+            </div>
+            <div style="margin-top: 20px;" class="edu-card">
+                <h3>Primary Education</h3>
+                <div class="school">Libertad Central School</div>
+                <div class="year">2004 - 2010</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates">
+        <div class="section-container">
+            <h2 class="section-title"><span>06.</span> Certificates & Licenses</h2>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <h4>Licensed Criminologist</h4>
+                        <p>Professional License</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-fingerprint"></i>
+                    <div>
+                        <h4>Seminar and Workshop on Fingerprint Identification</h4>
+                        <p>Forensic Science Training</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Seminar: "BJMP in Focus" - Its Impact in Public Safety</h4>
+                        <p>Public Safety & Corrections</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-fire-extinguisher"></i>
+                    <div>
+                        <h4>Certificate of Completion of OJT at the BFP</h4>
+                        <p>Bureau of Fire Protection</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                        <h4>World Class Admin Assistant Certification Course</h4>
+                        <p>ClubWealth University</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-home"></i>
+                    <div>
+                        <h4>Advanced Topics in the Roofing Industry and Product Specifics</h4>
+                        <p>Industry Specialization</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>Advanced Sales Training Methodology and Client Acquisition</h4>
+                        <p>Sales Excellence</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-laptop"></i>
+                    <div>
+                        <h4>Certificate of Completion of Go High Level Webinar</h4>
+                        <p>CRM & Automation Platform</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools">
+        <div class="section-container">
+            <h2 class="section-title"><span>07.</span> Tools & Platforms</h2>
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3><i class="fas fa-database"></i> CRM & Sales Platforms</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">GoHighLevel (GHL)</span>
+                        <span class="tool-tag">Podio</span>
+                        <span class="tool-tag">Lofty</span>
+                        <span class="tool-tag">Pebble</span>
+                        <span class="tool-tag">REISift</span>
+                        <span class="tool-tag">Keap</span>
+                        <span class="tool-tag">Zoho CRM</span>
+                        <span class="tool-tag">Salesforce</span>
+                        <span class="tool-tag">Apollo.io</span>
+                        <span class="tool-tag">Follow Up Boss</span>
+                        <span class="tool-tag">VanillaSoft</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3><i class="fas fa-phone"></i> Dialers & Calling Systems</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Mojo Dialer</span>
+                        <span class="tool-tag">JustCall</span>
+                        <span class="tool-tag">Zoho Voice</span>
+                        <span class="tool-tag">ViciDial</span>
+                        <span class="tool-tag">BatchDialer</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3><i class="fas fa-search"></i> Skip Tracing & Research</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">BatchSkipTracer</span>
+                        <span class="tool-tag">Skip Genie</span>
+                        <span class="tool-tag">ZabaSearch</span>
+                        <span class="tool-tag">Forewarn</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3><i class="fas fa-home"></i> Real Estate Tools</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Zillow</span>
+                        <span class="tool-tag">Redfin</span>
+                        <span class="tool-tag">MLS</span>
+                        <span class="tool-tag">Sold.com</span>
+                        <span class="tool-tag">PropWire</span>
+                        <span class="tool-tag">PropStream</span>
+                        <span class="tool-tag">LandID</span>
+                        <span class="tool-tag">PropertyRadar</span>
+                        <span class="tool-tag">Regrid</span>
+                        <span class="tool-tag">Google Earth Pro</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3><i class="fas fa-globe"></i> Website & Content</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">WordPress</span>
+                        <span class="tool-tag">Elementor</span>
+                        <span class="tool-tag">LearnDash</span>
+                        <span class="tool-tag">Canva</span>
+                        <span class="tool-tag">Simplified</span>
+                        <span class="tool-tag">Adobe Campaign</span>
+                    </div>
+                </div>
+                <div class="tool-category">
+                    <h3><i class="fas fa-file-excel"></i> Data & File Management</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Microsoft Excel</span>
+                        <span class="tool-tag">Google Sheets</span>
+                        <span class="tool-tag">EasyCSV</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by <a href="index.html">John Mc Levann Arranchado</a></p>
+        <p style="margin-top: 5px; font-size: 0.8rem;">Licensed Criminologist | Virtual Assistant | Real Estate Professional</p>
+    </footer>
+
+</body>
+</html>
