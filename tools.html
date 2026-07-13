@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools & Platforms | John Mc Levann Arranchado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy-dark: #0a192f;
+            --navy: #112240;
+            --navy-light: #233554;
+            --light-blue: #64ffda;
+            --light-blue-soft: rgba(100, 255, 218, 0.1);
+            --white: #e6f1ff;
+            --gray: #8892b0;
+            --gray-light: #a8b2d1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--navy-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--navy-light);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-blue);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .page-header {
+            padding: 150px 50px 60px;
+            text-align: center;
+            background: var(--navy);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 span {
+            color: var(--light-blue);
+        }
+
+        .page-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light-blue);
+            text-decoration: none;
+            margin-top: 25px;
+            font-weight: 500;
+            transition: gap 0.3s;
+        }
+
+        .back-btn:hover {
+            gap: 15px;
+        }
+
+        .tools-section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tools-section:nth-child(even) {
+            background: var(--navy);
+        }
+
+        .tools-section:nth-child(odd) {
+            background: var(--navy-dark);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: var(--light-blue);
+            font-size: 1.5rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .tool-card {
+            background: var(--navy-dark);
+            padding: 20px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--navy-light);
+            text-align: center;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .tool-card:hover {
+            border-color: var(--light-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .tool-card i {
+            font-size: 1.8rem;
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+
+        .tool-card span {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        footer {
+            padding: 30px 50px;
+            text-align: center;
+            background: var(--navy-dark);
+            border-top: 1px solid var(--navy-light);
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--light-blue);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .page-header {
+                padding: 120px 25px 40px;
+            }
+
+            .tools-section {
+                padding: 60px 25px;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+
+            nav {
+                padding: 15px 25px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">JMLA</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <h1><span>05.</span> Tools & Platforms</h1>
+        <p>A comprehensive list of software, platforms, and tools I have hands-on experience with across CRM, real estate, lead generation, communication, marketing, and productivity.</p>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+    </section>
+
+    <section class="tools-section">
+        <h2 class="section-title"><i class="fas fa-building"></i> CRM & Real Estate Platforms</h2>
+        <div class="tools-grid">
+            <div class="tool-card"><i class="fas fa-database"></i><span>Podio</span></div>
+            <div class="tool-card"><i class="fas fa-home"></i><span>Lofty</span></div>
+            <div class="tool-card"><i class="fas fa-gem"></i><span>Pebble</span></div>
+            <div class="tool-card"><i class="fas fa-filter"></i><span>REISift</span></div>
+            <div class="tool-card"><i class="fas fa-briefcase"></i><span>Keap</span></div>
+            <div class="tool-card"><i class="fas fa-cloud"></i><span>Zoho CRM</span></div>
+            <div class="tool-card"><i class="fas fa-salesforce"></i><span>Salesforce</span></div>
+            <div class="tool-card"><i class="fas fa-user-tie"></i><span>Follow Up Boss</span></div>
+            <div class="tool-card"><i class="fas fa-rocket"></i><span>GoHighLevel (GHL)</span></div>
+            <div class="tool-card"><i class="fas fa-radar"></i><span>Property Radar</span></div>
+            <div class="tool-card"><i class="fas fa-network-wired"></i><span>PropWire</span></div>
+            <div class="tool-card"><i class="fas fa-stream"></i><span>PropStream</span></div>
+            <div class="tool-card"><i class="fas fa-map-marked-alt"></i><span>LandID</span></div>
+            <div class="tool-card"><i class="fas fa-globe"></i><span>Land Portal</span></div>
+            <div class="tool-card"><i class="fas fa-home"></i><span>Zillow</span></div>
+            <div class="tool-card"><i class="fas fa-house-user"></i><span>Redfin</span></div>
+            <div class="tool-card"><i class="fas fa-list-alt"></i><span>MLS</span></div>
+            <div class="tool-card"><i class="fas fa-check-circle"></i><span>Sold.com</span></div>
+            <div class="tool-card"><i class="fas fa-shield-alt"></i><span>Forewarn</span></div>
+            <div class="tool-card"><i class="fas fa-handshake"></i><span>Clubwealth</span></div>
+            <div class="tool-card"><i class="fas fa-file-signature"></i><span>Dotloop</span></div>
+            <div class="tool-card"><i class="fas fa-sticky-note"></i><span>Notion</span></div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <h2 class="section-title"><i class="fas fa-search"></i> Lead Generation & Skip Tracing</h2>
+        <div class="tools-grid">
+            <div class="tool-card"><i class="fas fa-rocket"></i><span>Apollo.io</span></div>
+            <div class="tool-card"><i class="fas fa-user-secret"></i><span>Batch Skip Tracer</span></div>
+            <div class="tool-card"><i class="fas fa-phone-volume"></i><span>Batch Dialer</span></div>
+            <div class="tool-card"><i class="fas fa-search-location"></i><span>Skip Genie</span></div>
+            <div class="tool-card"><i class="fas fa-address-book"></i><span>Zaba Search</span></div>
+            <div class="tool-card"><i class="fas fa-file-csv"></i><span>EASYCSV</span></div>
+            <div class="tool-card"><i class="fas fa-magic"></i><span>Mojo</span></div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <h2 class="section-title"><i class="fas fa-phone-alt"></i> Dialers & Communication Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card"><i class="fas fa-phone"></i><span>JustCall</span></div>
+            <div class="tool-card"><i class="fas fa-headset"></i><span>CallHippo</span></div>
+            <div class="tool-card"><i class="fas fa-phone-square"></i><span>Zoho Dialer</span></div>
+            <div class="tool-card"><i class="fas fa-broadcast-tower"></i><span>VICIdial</span></div>
+            <div class="tool-card"><i class="fas fa-tachometer-alt"></i><span>Batch Dialer</span></div>
+            <div class="tool-card"><i class="fas fa-cogs"></i><span>Sudo Managed</span></div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <h2 class="section-title"><i class="fas fa-paint-brush"></i> Website, Marketing & Content Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
+            <div class="tool-card"><i class="fas fa-puzzle-piece"></i><span>Elementor</span></div>
+            <div class="tool-card"><i class="fas fa-graduation-cap"></i><span>LearnDash</span></div>
+            <div class="tool-card"><i class="fas fa-palette"></i><span>Canva</span></div>
+            <div class="tool-card"><i class="fas fa-magic"></i><span>Simplified</span></div>
+            <div class="tool-card"><i class="fas fa-bullhorn"></i><span>Adobe Campaign</span></div>
+            <div class="tool-card"><i class="fas fa-carrot"></i><span>Carrot AI</span></div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <h2 class="section-title"><i class="fas fa-tasks"></i> Project Management & Productivity</h2>
+        <div class="tools-grid">
+            <div class="tool-card"><i class="fas fa-check-square"></i><span>ClickUp</span></div>
+            <div class="tool-card"><i class="fas fa-globe-americas"></i><span>Google Earth Pro</span></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed & Built by <a href="index.html">John Mc Levann Arranchado</a></p>
+        <p style="margin-top: 5px; font-size: 0.8rem;">Licensed Criminologist | Virtual Assistant | Real Estate Professional</p>
+    </footer>
+
+</body>
+</html>
